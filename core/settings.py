@@ -88,15 +88,19 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     },
-    # "default": {
-    #     "ENGINE": "django.db.backends.postgresql",
-    #     "HOST": os.getenv("DATABASE_HOST"),
-    #     "PORT": os.getenv("DATABASE_PORT"),
-    #     "USER": os.getenv("DATABASE_USER"),
-    #     "PASSWORD": os.getenv("DATABASE_PASSWORD"),
-    #     "NAME": os.getenv("DATABASE_NAME"),
-    # }
 }
+DB_CONNECTION = os.getenv('DB_CONNECTION')
+if DB_CONNECTION == "pg":
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.postgresql",
+            "HOST": os.getenv("DATABASE_HOST"),
+            "PORT": os.getenv("DATABASE_PORT"),
+            "USER": os.getenv("DATABASE_USER"),
+            "PASSWORD": os.getenv("DATABASE_PASSWORD"),
+            "NAME": os.getenv("DATABASE_NAME"),
+        }
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
