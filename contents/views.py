@@ -2,7 +2,7 @@ from rest_framework import viewsets
 
 from .models import Product, Order
 
-from .serializers import ProductSerializer
+from .serializers import ProductSerializer, OrderSerializer
 
 class ProductViewSet(viewsets.ModelViewSet):
 
