@@ -1,0 +1,12 @@
+django
+django-cors-headers
+django-tinymce
+djangorestframework
+gunicorn
+honcho
+mysqlclient
+django-autoslug
+psycopg2
+google-cloud-storage
+django-storages
+Pillow
