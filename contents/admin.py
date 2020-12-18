@@ -1,6 +1,7 @@
 from django.contrib import admin
 
 from .models import Product, Image, Order
+admin.site.site_header = "Cartão Presente Admin"
 
 
 class ImageInline(admin.StackedInline):
