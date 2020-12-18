@@ -107,7 +107,7 @@ if DB_CONNECTION == "pg":
 # DATABASE_PASSWORD
 
 DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
-GS_BUCKET_NAME = 'cartao-presente.appspot.com'
+GS_BUCKET_NAME = 'cartao-presente.appspot.com'"
 
 AUTH_PASSWORD_VALIDATORS = [
     {
