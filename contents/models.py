@@ -55,7 +55,7 @@ class Order(models.Model):
 
     product = models.ManyToManyField(Product, verbose_name='produtos')
     amount = models.IntegerField()
-    date_time = models.DateTimeField()
+    date_time = models.DateTimeField(auto_now=True)
     email = models.CharField(max_length=256)
     name = models.CharField(max_length=256)
 
