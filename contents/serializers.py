@@ -14,12 +14,16 @@ class ImageSerializer(serializers.ModelSerializer):
         ]
 
 
-class ProductSerializer(serializers.ModelSerializer):
+class ProductSerializer(serializers.HyperlinkedModelSerializer):
     images = ImageSerializer(many=True)
 
     class Meta:
         model = Product
         fields = '__all__'
+        lookup_field = 'slug'
+        extra_kwargs = {
+            'url': {'lookup_field': 'slug'}
+        }
 
 
 class OrderSerializer(serializers.ModelSerializer):
