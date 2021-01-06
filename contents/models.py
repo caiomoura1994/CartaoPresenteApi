@@ -8,6 +8,7 @@ class Product(models.Model):
         verbose_name_plural = 'Produtos'
 
     name = models.CharField(max_length=256)
+    slug = models.CharField(max_length=256, default="")
     is_active = models.BooleanField(null=True, default=False, verbose_name='Está ativo')
     price = models.DecimalField(max_digits=7, decimal_places=2)
     stock = models.IntegerField(default=0)
