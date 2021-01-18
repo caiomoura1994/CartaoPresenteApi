@@ -57,6 +57,8 @@ class Order(models.Model):
     product = models.ManyToManyField(Product, verbose_name='produtos')
     amount = models.IntegerField()
     date_time = models.DateTimeField(auto_now=True)
-    email = models.CharField(max_length=256)
-    name = models.CharField(max_length=256)
+    email = models.CharField(max_length=256, default="")
+    name = models.CharField(max_length=256, default="")
+    stripe_checkout_key = models.CharField(max_length=256, default="")
+    gift_code = models.CharField(max_length=256, default="")
 
