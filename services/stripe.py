@@ -69,7 +69,7 @@ def create_checkout_session(product, amount, domain_url):
             }],
             mode='payment',
             success_url=domain_url + '/success?session_id={CHECKOUT_SESSION_ID}',
-            cancel_url=domain_url + '/cancel',
+            cancel_url=domain_url + f'/{product.slug}',
         )
     except Exception as e:
         return handle_with_stripe_errors(e)
