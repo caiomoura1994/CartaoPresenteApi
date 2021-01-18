@@ -24,12 +24,12 @@ class OrderViewSet(viewsets.ModelViewSet):
 def create_checkout(request):
     raw_payload = str(request.body, 'utf-8')
     payload = json.loads(raw_payload)
-    product_id = payload.get('product_id', '')
+    product_slug = payload.get('product_slug', '')
     amount = payload.get('amount', '')
     domain_url = payload.get('domain_url', '')
-    if not product_id:
+    if not product_slug:
         raise ValidationError('Produto não encontrado.')
-    product = Product.objects.get(pk=product_id)
+    product = Product.objects.get(slug=product_slug)
     new_session = create_checkout_session(product, amount, domain_url)
     if new_session:
         return Response(status=status.HTTP_204_NO_CONTENT, data=new_session)
