@@ -21,7 +21,7 @@ from django.conf.urls import url
 
 from rest_framework import routers
 
-from contents.views import ProductViewSet, OrderViewSet
+from contents.views import ProductViewSet, OrderViewSet, create_checkout
 
 router = routers.DefaultRouter()
 router.register(r'product', ProductViewSet)
@@ -29,5 +29,6 @@ router.register(r'order', OrderViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('create-checkout-session/', create_checkout),
     url(r'^', include(router.urls)),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
