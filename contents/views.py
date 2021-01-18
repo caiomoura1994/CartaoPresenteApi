@@ -33,6 +33,6 @@ def create_checkout(request):
     product = Product.objects.get(slug=product_slug)
     new_session = create_checkout_session(product, amount, domain_url)
     if new_session:
-        return Response(status=status.HTTP_204_NO_CONTENT, data=new_session)
+        return Response(data=new_session)
     else:
         return Response(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
