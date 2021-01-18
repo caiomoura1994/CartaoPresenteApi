@@ -33,6 +33,15 @@ def create_checkout(request):
     product = Product.objects.get(slug=product_slug)
     new_session = create_checkout_session(product, amount, domain_url)
     if new_session:
-        return Response(data=new_session)
+        return Response(new_session)
     else:
         return Response(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+@api_view(['GET'])
+def check_order_by_session(request):
+    session_checkout_id = request.GET.get('sessionCheckoutId', None)
+    order = Order.objects.get(stripe_checkout_key=session_checkout_id)
+    order.gift_code = "Codigo_gift_card234"
+    order.save()
+    serializer = OrderSerializer(order)
+    return Response(serializer.data, status=status.HTTP_200_OK)
