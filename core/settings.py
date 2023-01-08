@@ -21,7 +21,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv('SECRET_KEY')
-STRIPE_API_KEY = os.getenv('STRIPE_API_KEY', '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')
+STRIPE_API_KEY = os.getenv('STRIPE_API_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', True)
